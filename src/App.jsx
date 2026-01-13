@@ -2,10 +2,11 @@ import Home from "./pages/Home";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import SingUp from "./accounts/SingUp";
-import TodoList from "./component/todoList/TodoList"
+import TodoList from "./component/todoList/TodoList";
 import ForgotPassword from "./accounts/ForgotPassword";
 import Contact from "./pages/Contact";
 import SignIn from "./accounts/SignIn";
+import Layout from "./component/layout/Layout";
 
 function App() {
   const router = createBrowserRouter([
@@ -15,7 +16,7 @@ function App() {
     },
     {
       path: "/signin",
-      element: <SignIn/>,
+      element: <SignIn />,
     },
     {
       path: "/singup",
@@ -23,22 +24,22 @@ function App() {
     },
     {
       path: "/todolist",
-      element: <TodoList/>,
+      element: <TodoList />,
     },
     {
       path: "/ForgotPassword",
-      element: <ForgotPassword/>,
+      element: <ForgotPassword />,
     },
     {
       path: "/contact",
-      element: <Contact/> ,
+      element: <Contact />,
     },
   ]);
 
   return (
-    <>
+    <Layout>
       <RouterProvider router={router} />
-    </>
+    </Layout>
   );
 }
 

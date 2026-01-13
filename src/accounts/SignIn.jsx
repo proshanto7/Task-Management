@@ -3,7 +3,7 @@ import Header from "../component/header/Header";
 import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../Firebase.config";
+import { auth  } from "../Firebase.config";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/slices/userSlice";
@@ -64,8 +64,12 @@ function SignIn() {
             setTimeout(() => {
               navigate("/todolist");
             }, 1000);
-            localStorage.setItem("user", JSON.stringify(user));
-            dispatch(addUser(user));
+           
+
+
+
+
+            // dispatch(addUser(user));
           })
           .catch((error) => {
             const errorCode = error.code;

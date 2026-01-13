@@ -11,8 +11,23 @@ import {
   update,
 } from "firebase/database";
 import Header from "../header/Header";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+
 
 function TodoList() {
+
+const user = useSelector((state)=> state.user.value)
+
+
+const navigate = useNavigate()
+
+
+
+
+
+
+
   const [task, setTask] = useState("");
   const [listItem, setListItem] = useState([]);
   const [updateList, setUpdateList] = useState("");
@@ -46,6 +61,27 @@ function TodoList() {
   // read data fireBase
 
   useEffect(() => {
+
+// navigate function start
+
+if(!user){
+
+
+
+
+navigate("/")
+
+}
+
+
+// navigate function end
+
+
+
+
+
+
+
     const starCountRef = ref(db, "todoList/");
 
     onValue(starCountRef, (snapshot) => {
