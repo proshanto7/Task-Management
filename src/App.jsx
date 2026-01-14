@@ -7,6 +7,7 @@ import ForgotPassword from "./accounts/ForgotPassword";
 import Contact from "./pages/Contact";
 import SignIn from "./accounts/SignIn";
 import Layout from "./component/layout/Layout";
+import TodoList2 from "./component/todoList/list/TodoList2";
 
 function App() {
   const router = createBrowserRouter([
@@ -33,6 +34,10 @@ function App() {
     {
       path: "/contact",
       element: <Contact />,
+    },
+    {
+      path: "/todo",
+      element: <TodoList2/>,
     },
   ]);
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { MdDeleteForever, MdCancelPresentation } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import {
