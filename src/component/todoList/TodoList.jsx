@@ -13,20 +13,12 @@ import {
 import Header from "../header/Header";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-
+import { auth } from "../../Firebase.config";
 
 function TodoList() {
+  const user = useSelector((state) => state.user.value);
 
-const user = useSelector((state)=> state.user.value)
-
-
-const navigate = useNavigate()
-
-
-
-
-
-
+  const navigate = useNavigate();
 
   const [task, setTask] = useState("");
   const [listItem, setListItem] = useState([]);
@@ -61,26 +53,13 @@ const navigate = useNavigate()
   // read data fireBase
 
   useEffect(() => {
+    // navigate function start
 
-// navigate function start
+    if (!user) {
+      navigate("/");
+    }
 
-if(!user){
-
-
-
-
-navigate("/")
-
-}
-
-
-// navigate function end
-
-
-
-
-
-
+    // navigate function end
 
     const starCountRef = ref(db, "todoList/");
 

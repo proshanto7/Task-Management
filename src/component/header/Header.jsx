@@ -15,13 +15,13 @@ function Header() {
           to="/"
           className="max-sm:hidden text-2xl font-semibold capitalize font-serif"
         >
-          {user ? user.displayName : "proshanto"}
+         Proshanto
         </Link>
         <Link
           to="/"
           className="hidden max-sm:block text-3xl font-bold capitalize "
         >
-          {user ? user.displayName : "proshanto"}
+         Proshanto
         </Link>
         <div
           id="collapseMenu"

@@ -6,7 +6,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth  } from "../Firebase.config";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { addUser } from "../redux/slices/userSlice";
+
 
 function SignIn() {
   const [userDetails, setUserDetails] = useState({
@@ -16,8 +16,7 @@ function SignIn() {
   // navigate variable
   const navigate = useNavigate();
 
-  // redux dispatch diya data push kora jay
-  const dispatch = useDispatch();
+
 
   // erros state
 

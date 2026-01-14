@@ -1,8 +1,35 @@
 import React from "react";
 import { FcManager } from "react-icons/fc";
+import { useSelector } from "react-redux";
+import {  signOut } from "firebase/auth";
+import{auth} from "../../Firebase.config"
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 function Profile() {
-  const handleLogOut = () => {};
+const navigate = useNavigate()
+const user = useSelector((state)=>state.user.value)
+console.log(user);
+  const handleLogOut = () => {
+
+signOut(auth).then(() => {
+  // Sign-out successful.
+
+toast.success("Log Out successfull")
+setTimeout(() => {
+  navigate("/signin")
+  
+}, 2000);
+
+}).catch((error) => {
+  toast.error(error)
+  
+});
+
+
+
+
+  };
 
   return (
     <div className="absolute top-13 z-40 right-0 bg-white p-6 border border-gray-200 shadow-md w-full max-w-sm rounded-2xl overflow-hidden mx-auto mt-4">
@@ -11,8 +38,9 @@ function Profile() {
           <FcManager className="text-9xl rounded-full" />
         </div>
         <div className="mt-4 text-center">
-          <p className="text-lg text-slate-900 font-semibold">John Doe</p>
-          <p className="text-sm text-slate-500 mt-1">Marketing Coordinator</p>
+          <p className="text-lg text-slate-900 font-semibold">{user.displayName
+}</p>
+          <p className="text-sm text-slate-500 mt-1">Email : { user.email}</p>
         </div>
       </div>
       <div className="mt-8 flex flex-wrap justify-center gap-8">

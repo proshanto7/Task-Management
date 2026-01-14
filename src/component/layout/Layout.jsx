@@ -5,16 +5,12 @@ import { addUser } from "../../redux/slices/userSlice";
 import { useEffect } from "react";
 
 function Layout({ children }) {
-  const userInfo = auth
-  console.log(userInfo);
   const dispatch = useDispatch();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-
         dispatch(addUser(user));
-       
       }
     });
   }, []);
