@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 import { MdCancelPresentation, MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
 function TodoList2() {
   const [task, setTask] = useState("");
@@ -24,10 +25,20 @@ function TodoList2() {
   const db = getDatabase();
   const user = useSelector((state) => state.user.value);
   const navigate = useNavigate();
-
+console.log(user);
   useEffect(() => {
     if (!user) {
       navigate("/");
+    } else{
+
+if(user.emailVerified !== true){
+
+navigate("/")
+toast.error("Please Verify Your Email")
+
+
+}
+
     }
 
     // data read for log in user

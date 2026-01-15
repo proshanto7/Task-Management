@@ -1,35 +1,29 @@
 import React from "react";
 import { FcManager } from "react-icons/fc";
 import { useSelector } from "react-redux";
-import {  signOut } from "firebase/auth";
-import{auth} from "../../Firebase.config"
+import { signOut } from "firebase/auth";
+import { auth } from "../../Firebase.config";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
 
 function Profile() {
-const navigate = useNavigate()
-const user = useSelector((state)=>state.user.value)
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user.value);
 
   const handleLogOut = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
 
-signOut(auth).then(() => {
-  // Sign-out successful.
-
-toast.success("Log Out successfull")
-setTimeout(() => {
-  navigate("/signin")
-  window.location.reload()
-  
-}, 2000);
-
-}).catch((error) => {
-  toast.error(error)
-  
-});
-
-
-
-
+        toast.success("Log Out successfull");
+        setTimeout(() => {
+          navigate("/signin");
+          window.location.reload();
+        }, 2000);
+      })
+      .catch((error) => {
+        toast.error(error);
+      });
   };
 
   return (
@@ -39,9 +33,20 @@ setTimeout(() => {
           <FcManager className="text-9xl rounded-full" />
         </div>
         <div className="mt-4 text-center">
-          <p className="text-lg text-slate-900 font-semibold">{user.displayName
-}</p>
-          <p className="text-sm text-slate-500 mt-1">Email : { user.email}</p>
+          <p className="text-lg text-slate-900 font-semibold capitalize">
+            {user.displayName}
+          </p>
+          <p className="text-sm text-slate-500 mt-1">Email : {user.email}</p>
+          <p className="text-sm text-slate-500 mt-2">
+            Emai-Verified :{" "}
+            <span
+              className={`p-1 text-black rounded-md ${
+                user.emailVerified ? "bg-green-600" : "bg-red-600"
+              }`}
+            >
+              {user.emailVerified ? "Yes" : "No"}
+            </span>
+          </p>
         </div>
       </div>
       <div className="mt-8 flex flex-wrap justify-center gap-8">

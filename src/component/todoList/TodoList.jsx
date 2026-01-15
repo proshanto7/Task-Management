@@ -13,6 +13,7 @@ import {
 import Header from "../header/Header";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
 
 function TodoList() {
@@ -57,6 +58,17 @@ function TodoList() {
 
     if (!user) {
       navigate("/");
+    } else{
+
+if(user.emailVerified !== true){
+
+navigate("/")
+toast.error("Please Verify Your Email")
+
+
+}
+
+
     }
 
     // navigate function end
