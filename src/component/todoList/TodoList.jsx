@@ -13,7 +13,7 @@ import {
 import Header from "../header/Header";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { auth } from "../../Firebase.config";
+
 
 function TodoList() {
   const user = useSelector((state) => state.user.value);

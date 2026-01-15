@@ -9,7 +9,7 @@ import { useNavigate } from "react-router";
 function Profile() {
 const navigate = useNavigate()
 const user = useSelector((state)=>state.user.value)
-console.log(user);
+
   const handleLogOut = () => {
 
 signOut(auth).then(() => {
@@ -18,6 +18,7 @@ signOut(auth).then(() => {
 toast.success("Log Out successfull")
 setTimeout(() => {
   navigate("/signin")
+  window.location.reload()
   
 }, 2000);
 
