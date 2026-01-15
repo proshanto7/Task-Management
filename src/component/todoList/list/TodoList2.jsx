@@ -25,20 +25,15 @@ function TodoList2() {
   const db = getDatabase();
   const user = useSelector((state) => state.user.value);
   const navigate = useNavigate();
-console.log(user);
+  console.log(user);
   useEffect(() => {
     if (!user) {
       navigate("/");
-    } else{
-
-if(user.emailVerified !== true){
-
-navigate("/")
-toast.error("Please Verify Your Email")
-
-
-}
-
+    } else {
+      if (user.emailVerified !== true) {
+        navigate("/");
+        toast.error("Please Verify Your Email");
+      }
     }
 
     // data read for log in user
@@ -127,12 +122,18 @@ toast.error("Please Verify Your Email")
           {listItem.length > 0 && (
             <div className="mt-8">
               <ul className="bg-gray-300 p-6">
-                {listItem.map((item) => (
+                {listItem.map((item, index) => (
                   <li key={item.id} className="mb-3">
                     <div className="flex items-center justify-between bg-white px-3 py-1.5 rounded-md hover:bg-teal-600 duration-300">
-                      <span className="text-lg font-semibold capitalize ">
-                        {item.taskList}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg font-semibold">
+                          {index + 1}.
+                        </span>
+
+                        <span className="text-lg font-semibold capitalize ">
+                          {item.taskList}
+                        </span>
+                      </div>
                       <div className="flex items-center gap-6">
                         <button onClick={() => handleUpdate(item.id)}>
                           <FaRegEdit className="text-black hover:text-white duration-300 cursor-pointer text-lg" />
