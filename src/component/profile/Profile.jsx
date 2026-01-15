@@ -18,7 +18,6 @@ function Profile() {
         toast.success("Log Out successfull");
         setTimeout(() => {
           navigate("/signin");
-          window.location.reload();
         }, 2000);
       })
       .catch((error) => {
