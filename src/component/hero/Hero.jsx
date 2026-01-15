@@ -1,6 +1,10 @@
 import natureImg from "../../assets/nature.jpg";
 import { useSelector } from "react-redux";
 function Hero() {
+
+
+
+  
   const user = useSelector((state) => state.user.value);
 
 

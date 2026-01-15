@@ -4,6 +4,7 @@ import Hero from "../component/hero/Hero";
 import { auth } from "../Firebase.config";
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
+import { addUser } from "../redux/slices/userSlice";
 
 function Home() {
 

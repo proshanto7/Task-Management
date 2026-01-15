@@ -61,7 +61,7 @@ function SignIn() {
             setUserDetails({ email: "", password: "" });
 
             setTimeout(() => {
-              navigate("/todolist");
+              navigate("/todo");
             }, 1000);
            
 

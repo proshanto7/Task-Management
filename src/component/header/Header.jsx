@@ -15,13 +15,13 @@ function Header() {
           to="/"
           className="max-sm:hidden text-2xl font-semibold capitalize font-serif"
         >
-         Proshanto
+          Proshanto
         </Link>
         <Link
           to="/"
           className="hidden max-sm:block text-3xl font-bold capitalize "
         >
-         Proshanto
+          Proshanto
         </Link>
         <div
           id="collapseMenu"
@@ -77,7 +77,7 @@ function Header() {
                 to="/todo"
                 className="hover:text-blue-700 text-slate-900 block font-medium text-[15px]"
               >
-              TO-DO
+                TO-DO
               </Link>
             </li>
             <li className="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3">
@@ -114,17 +114,13 @@ function Header() {
             <Link to="/singup">Sign up</Link>
           </button>
 
-
-{
-user && 
-          <button onClick={() => setProfileShow(!profileShow)}>
-            <Link>
-              <CgProfile className="text-3xl cursor-pointer " />
-            </Link>
-          </button>
-
-}
-
+          {user && (
+            <button onClick={() => setProfileShow(!profileShow)}>
+              <Link>
+                <CgProfile className="text-3xl cursor-pointer " />
+              </Link>
+            </button>
+          )}
 
           <button id="toggleOpen" className="lg:hidden cursor-pointer">
             <svg
